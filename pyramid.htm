@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Pyramid Generator</title>
+</head>
+<body>
+    <input id="size" type="number">
+    <button onclick="drawPyramid()">Generate</button>
+    <h2 id="head"></h2>
+    <div id="pyramid">
+    </div>
+    <script>
+        function drawPyramid() {
+            var head = document.getElementById("head");
+            var count = document.getElementById("size").value;
+            var pyramid = document.getElementById("pyramid");
+            if (count == "") {
+                head.innerText = "Layer count is Mandatory";
+            }else if(count<0){
+                head.innerText = "Layer count must be valid";
+            } else {
+                pyramid.innerHTML = "";
+                head.innerText = "Pyramid of " + count + " Layers";
+                for (var i = 1; i <= count; i++) {
+                    for (var k = 1; k <= (count - i); k++) {
+                        pyramid.innerHTML += "&nbsp";
+                    }
+                    for (var j = 1; j <= i; j++) {
+                        pyramid.innerHTML += "* ";
+                    }
+                    pyramid.innerHTML += "<br/>";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
